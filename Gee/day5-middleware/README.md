@@ -41,7 +41,7 @@ func (c *Context) Next() {
 
 `Next()` will ensure the middleware will run in sequence.
 
-## What criteria make a framework successful
+## What criteria make a framework performance outstanding?
 
 *It's my guessing*
 
@@ -52,4 +52,3 @@ O(1) < O(logn) < O(n) < O(nlogn) < O(n^2) < O(n^3) < O(2^n) < O(n!) < O(n^n)
 ```
 
 2. Lines of code.
-3. Features.
