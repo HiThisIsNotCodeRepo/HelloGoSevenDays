@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day3_http/geecache"
+	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day3-http-server/geecache"
 	"log"
 	"net/http"
 )
