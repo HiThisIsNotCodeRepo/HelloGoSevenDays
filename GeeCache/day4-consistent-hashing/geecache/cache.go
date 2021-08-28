@@ -1,7 +1,7 @@
 package geecache
 
 import (
-	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day2-concurrency/geecache/lru"
+	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day4-consistent-hashing/geecache/lru"
 	"sync"
 )
 

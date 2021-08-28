@@ -1,7 +1,8 @@
 package geecache
 
 import (
-	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day3-http-server/geecache/lru"
+	"fmt"
+	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day6-single-flight/geecache/lru"
 	"sync"
 )
 
@@ -20,8 +21,12 @@ func (c *cache) add(key string, value ByteView) {
 	c.lru.Add(key, value)
 }
 
+var getCount int
+
 func (c *cache) get(key string) (value ByteView, ok bool) {
 	c.mu.Lock()
+	fmt.Printf("get count:%d\n", getCount)
+	getCount++
 	defer c.mu.Unlock()
 	if c.lru == nil {
 		return
