@@ -60,22 +60,4 @@ go run . -port=8003 -api=1
 
 Run `TestSingleFlight` in `single_flight_test.go`
 
-```
-func TestSingleFlight(t *testing.T) {
-	var wg sync.WaitGroup
-	for i := 0; i < 100; i++ {
-		go func() {
-			wg.Add(1)
-			resp, _ := http.Get("http://localhost:9999/api?key=Tom")
-			content, _ := ioutil.ReadAll(resp.Body)
-			require.Equal(t, "630", string(content))
-			resp.Body.Close()
-			wg.Done()
-		}()
-	}
-	wg.Wait()
-}
-
-```
-
 `[SlowDB] search key Tom` should be displayed only once.

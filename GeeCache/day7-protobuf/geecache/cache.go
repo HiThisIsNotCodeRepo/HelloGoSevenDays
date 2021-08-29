@@ -1,7 +1,7 @@
 package geecache
 
 import (
-	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day6-single-flight/geecache/lru"
+	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day7-protobuf/geecache/lru"
 	"sync"
 )
 

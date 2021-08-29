@@ -2,7 +2,8 @@ package geecache
 
 import (
 	"fmt"
-	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day6-single-flight/geecache/singleflight"
+	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day7-protobuf/geecache/geecachepb"
+	"github.com/qinchenfeng/HelloGoSevenDays/GeeCache/day7-protobuf/geecache/singleflight"
 	"log"
 	"sync"
 )
@@ -95,11 +96,16 @@ func (g *Group) getLocally(key string) (ByteView, error) {
 }
 
 func (g *Group) getFromPeer(peer PeerGetter, key string) (ByteView, error) {
-	bytes, err := peer.Get(g.name, key)
+	req := &geecachepb.Request{
+		Group: g.name,
+		Key:   key,
+	}
+	res := &geecachepb.Response{}
+	err := peer.Get(req, res)
 	if err != nil {
 		return ByteView{}, err
 	}
-	return ByteView{bytes}, nil
+	return ByteView{res.Value}, nil
 }
 func (g *Group) populateCache(key string, value ByteView) {
 	g.mainCache.add(key, value)
