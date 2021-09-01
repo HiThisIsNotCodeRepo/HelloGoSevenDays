@@ -27,3 +27,16 @@ func main() {
 }
 
 ```
+
+## Basic flow of how remote procedure call accomplish
+
+1. Call service method from client. RPC can customize request/response protocol.
+
+```
+{
+    "ServiceMethod"： "T.MethodName"
+    "Argv"："0101110101..." // serialized data
+}
+```
+
+2. On server decode request and use reflection to construct method invocation.
