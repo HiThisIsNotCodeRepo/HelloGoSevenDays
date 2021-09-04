@@ -190,10 +190,12 @@ func dialTimeout(f newClientFunc, network, address string, opts ...*Option) (cli
 		client, err := f(conn, opt)
 		ch <- clientResult{client: client, err: err}
 	}()
+	// No timeout setting
 	if opt.ConnectTimeout == 0 {
 		result := <-ch
 		return result.client, result.err
 	}
+	// Got timeout setting
 	select {
 	case <-time.After(opt.ConnectTimeout):
 		return nil, fmt.Errorf("rpc client: connect timeout: expecte within %s", opt.ConnectTimeout)
