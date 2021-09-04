@@ -11,7 +11,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/qinchenfeng/HelloGoSevenDays/GeeRPC/day4-time-out/codec"
+	"github.com/qinchenfeng/HelloGoSevenDays/GeeRPC/day4-timeout/codec"
 )
 
 type Call struct {
